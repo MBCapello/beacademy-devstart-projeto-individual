@@ -49,4 +49,16 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Address::class);
     }
+
+    public function getUser($request = null)
+    {
+        $user = $this->where( function ($query) use ($request) {
+            if ($request->has('search')) {
+                $query->where('name', 'LIKE', "%{$request->search}%");
+            }
+
+            })
+        ->paginate(8);
+        return $user;
+    }
 }

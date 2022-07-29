@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Bem-vindo')
 
 @section('content')
     <div class="card shadow">

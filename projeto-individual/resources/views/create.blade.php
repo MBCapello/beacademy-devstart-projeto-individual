@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Adicionar novo animal')
+@section('title', 'Adicionar novo Pet')
 
 @section('content')
     <div class="card mb-3 shadow p-1">

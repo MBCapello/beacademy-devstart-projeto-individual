@@ -19,7 +19,7 @@ class ProductFactory extends Factory
         return [
 
             'name' => fake()->firstName(),
-            'birth_date' => fake()->dateTimeThisDecade('now'),
+            'birth_date' => fake()->date('d/m/Y', 'now'),
             'bio' => fake()->realText(100),
             'available'=> true,
 

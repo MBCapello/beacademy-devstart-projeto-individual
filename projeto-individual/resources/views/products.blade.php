@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Lista de adoção')
+@section('title', 'Pets para adoção')
 
 @section('content')
     <div class="card shadow p-1">
@@ -32,10 +32,16 @@
                           </select>
                     </div>
                 </form>
+                @if (isset($filters))
+                <a href="{{ route('products.index') }}">Mostrar todos.</a>
+            @endif
             </div>
         </div>
         <hr>
-        <a class="btn btn-primary" href="{{ route('product.create') }}">Adicionar novo animal</a>
+        @if (Auth::user()->admin == 1)
+            <a class="btn btn-primary" href="{{ route('product.create') }}">Adicionar novo animal</a>
+        @endif
+
         <div class="d-flex flex-wrap">
             @foreach ($products as $product)
                 @if ($product->available)
@@ -75,12 +81,14 @@
                                 </ul>
                             </div>
                             <div class="modal-footer">
-                                <a type="button" class="btn btn-warning" href="{{ route('product.edit', $product->id) }}" >Alterar informações</a>
-                                <form action="{{ route('product.destroy', $product->id) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger">Deletar Pet</button>
-                                </form>
+                                @if (Auth::user()->admin == 1)
+                                    <a type="button" class="btn btn-warning" href="{{ route('product.edit', $product->id) }}" >Alterar informações</a>
+                                    <form action="{{ route('product.destroy', $product->id) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Deletar Pet</button>
+                                    </form>
+                                @endif
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                 <button type="button" class="btn btn-primary">Adotar</button>
                             </div>
