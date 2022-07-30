@@ -46,6 +46,11 @@ body {
     letter-spacing: -.05rem;
   }
 
+  .alert {
+    position: relative;
+    z-index: 1000;
+  }
+
   @media (min-width: 40em) {
     .carousel-caption p {
       margin-bottom: 1.25rem;

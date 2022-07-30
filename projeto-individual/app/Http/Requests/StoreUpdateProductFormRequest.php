@@ -28,7 +28,7 @@ class StoreUpdateProductFormRequest extends FormRequest
             'name' => 'required|max:50|min:3',
             'type' => 'required',
             'sex' => 'required',
-            'birth_date' => 'required|digits:10',
+            'birth_date' => 'required|min:8',
             'image' => 'file|mimes:jpeg,bmp,png',
             'bio' => 'required|max:255|min:10'
         ];
@@ -41,7 +41,7 @@ class StoreUpdateProductFormRequest extends FormRequest
                 'min:3'
             ];
             $rules['birth_date'] = [
-                'digits:10'
+                'min:8'
             ];
             $rules['bio'] = [
                 'required',
@@ -57,7 +57,7 @@ class StoreUpdateProductFormRequest extends FormRequest
                 'min:3'
             ];
             $rules['birth_date'] = [
-                'digits:10'
+                'min:8'
             ];
             $rules['bio'] = [
                 'required',

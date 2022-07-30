@@ -60,7 +60,7 @@
                             @enderror
                         </div>
                         <div class="m-3 d-flex justify-content-center">
-                            <button class="btn btn-lg btn-primary p-3 shadow" type="submit">Adicionar novo Pet</button>
+                            <button class="btn btn-lg btn-primary p-3 shadow" type="submit">Alterar informações do Pet</button>
                         </div>
                     </form>
                 </div>

@@ -3,6 +3,12 @@
 @section('title', 'Pets para adoção')
 
 @section('content')
+    @if (session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show position-absolute top-0 end-0 p-5 m-3" role="alert">
+            {{ session()->get('message') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
     <div class="card shadow p-1">
         <div class="row p-3 mb-3">
             <div class="col-6">

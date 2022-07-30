@@ -17,12 +17,12 @@ class ProductsController extends Controller
     {
         $products = Product::latest()->paginate(8);
 
-        return view('products', compact('products'));
+        return view('products.index', compact('products'));
     }
 
     public function create()
     {
-        return view('create');
+        return view('products.create');
     }
 
     public function store(StoreUpdateProductFormRequest $request)
@@ -35,37 +35,35 @@ class ProductsController extends Controller
 
         $this->model->create($data);
 
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('message', 'Pet adicionado com sucesso!');
 
     }
 
     public function edit($id)
     {
-        if (!$product = $this->model->find($id)) {
-            return redirect()->route('products.index');
-        }
+        $product = $this->model->findOrFail($id);
 
-        return view('edit', compact('product'));
+        return view('products.edit', compact('product'));
     }
 
     public function update(StoreUpdateProductFormRequest $request, $id)
     {
-        if (!$product = $this->model->find($id)) {
-            return redirect()->route('products.index');
-        }
+        $product = $this->model->find($id);
+
         $data = $request->all();
+
         $product->update($data);
 
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('message', 'informações do Pet atualizadas com sucesso!');
     }
 
     public function destroy($id)
     {
-        if (!$product = $this->model->find($id)) {
-            return redirect()->route('products.index');
-        }
+        $product = $this->model->findOrFail($id);
+
         $product->delete();
-        return redirect()->route('products.index');
+
+        return redirect()->route('products.index')->with('message', 'informações do Pet apagadas com sucesso');
     }
 
     public function search(Request $request)
@@ -74,7 +72,7 @@ class ProductsController extends Controller
 
         $products = $this->model->getProduct($request);
 
-        return view('products', compact('products', 'filters'));
+        return view('products', compact('products.index', 'filters'));
     }
 
 

@@ -27,7 +27,7 @@
                         <div class="carousel-caption">
                             <h1>Já faz parte do nosso time de Tutores?.</h1>
                             <p>É rápido e fácil. Com alguns cliques você já se cadastra.</p>
-                            <p><a class="btn btn-lg btn-primary" href="">cadastrar-se</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="{{ route('register') }}">cadastrar-se</a></p>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                         <div class="carousel-caption text-end">
                             <h1>Olá Tutor.</h1>
                             <p>Se você já é um Tutor e está buscando um novo amigo, basta logar e buscar seu novo amigo.</p>
-                            <p><a class="btn btn-lg btn-primary" href="">Logar</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="{{ route('login') }}">Logar</a></p>
                         </div>
                     </div>
                 </div>

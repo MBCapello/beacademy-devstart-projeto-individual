@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Adote-me.cão
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -97,11 +97,8 @@
         <p>&copy; 2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </footer>
     <script>
-    $(document).ready(function () {
-        $("#birth_date").mask('00/00/0000', {reverse: false});
-        $("#phone").mask('(00) 00000-0000', {reverse: false});
-        $("#cpf").mask('000.000.000-00', {reverse: false});
-    });
+
+
     </script>
 </body>
 </html>
