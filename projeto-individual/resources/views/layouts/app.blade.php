@@ -94,7 +94,7 @@
     </div>
     <footer class="container">
         <p class="float-end"><a href="#">Voltar ao início</a></p>
-        <p>&copy; 2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2022 Adote.cão &middot; <a href="#">Política</a> &middot; <a href="#">Quem somos</a></p>
     </footer>
     <script>
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class AdminControlle extends Controller
+class AdminController extends Controller
 {
     public function __construct(User $user)
     {

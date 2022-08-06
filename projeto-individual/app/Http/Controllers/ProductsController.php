@@ -72,7 +72,7 @@ class ProductsController extends Controller
 
         $products = $this->model->getProduct($request);
 
-        return view('products', compact('products.index', 'filters'));
+        return view('products.index', compact('products', 'filters'));
     }
 
 

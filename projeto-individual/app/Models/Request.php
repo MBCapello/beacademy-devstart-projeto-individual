@@ -11,7 +11,7 @@ class Request extends Model
 
     public function requestProduct()
     {
-        return $this->hasMany(RequestProduct::class)->groupBy('product_id')
+        return $this->hasMany(RequestProduct::class)->groupBy('product_id');
 
     }
 }

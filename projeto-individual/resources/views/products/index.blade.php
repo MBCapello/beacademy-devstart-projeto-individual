@@ -44,11 +44,16 @@
             </div>
         </div>
         <hr>
-        @if (Auth::user()->admin == 1)
-            <a class="btn btn-primary" href="{{ route('product.create') }}">Adicionar novo animal</a>
+        @if (Auth::user())
+            @if (Auth::user()->admin == 1)
+                <a class="btn btn-primary" href="{{ route('product.create') }}">Adicionar novo animal</a>
+            @endif
         @endif
 
         <div class="d-flex flex-wrap">
+                @if (count($products) == 0)
+                    <p class="display-5 m-3 p-3">Não foi possível encontrar nenhum Pet com essas características. 😿</p>
+                @endif
             @foreach ($products as $product)
                 @if ($product->available)
                     <div class="card m-3" style="width: 18rem; height: 24rem">
@@ -87,16 +92,23 @@
                                 </ul>
                             </div>
                             <div class="modal-footer">
-                                @if (Auth::user()->admin == 1)
-                                    <a type="button" class="btn btn-warning" href="{{ route('product.edit', $product->id) }}" >Alterar informações</a>
-                                    <form action="{{ route('product.destroy', $product->id) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger">Deletar Pet</button>
-                                    </form>
-                                @endif
+                                   @if (Auth::user())
+                                        @if (Auth::user()->admin == 1)
+                                            <a type="button" class="btn btn-warning" href="{{ route('product.edit', $product->id) }}" >Alterar informações</a>
+                                            <form action="{{ route('product.destroy', $product->id) }}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Deletar Pet</button>
+                                            </form>
+                                        @endif
+                                   @endif
+
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-primary">Adotar</button>
+                                <form action="{{ route('product.store') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">adotar</button>
+
+                                </form>
                             </div>
                             </div>
                         </div>

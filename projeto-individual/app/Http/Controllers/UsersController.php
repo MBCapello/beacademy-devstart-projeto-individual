@@ -6,6 +6,7 @@ use App\Http\Requests\StoreUpdateUserFormRequest;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -31,15 +32,17 @@ class UsersController extends Controller
         return redirect()->route('products.index')->with('message', 'Perfil atualizado com sucesso!');
     }
 
+
     public function productRequest(Request $request)
-    {
-        $idProduct = $request->input('id');
+     {
+    //     $idProduct = $request->input('id');
 
-        $product = Product::findOrfail('id');
+    //     $product = Product::findOrfail('idProduct');
 
-        $idUser = Auth::id();
+    //     $idUser = Auth::id();
 
-        
+    //     $order =
+
     }
 
 }
